@@ -10,7 +10,7 @@ passport.deserializeUser((id: any, done) => {
     // User.findById(id, function(err, user) {
     //   done(err, user);
     // });
-    done(err, id);
+    done(null, id);
   });
 
 passport.use(new GoogleStrategy({
