@@ -23,11 +23,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = __importDefault(require("express"));
+var isloggedin_1 = require("../../middlewares/isloggedin");
 var router = express_1.default.Router();
 var googleController = __importStar(require("../../controllers/google"));
 router.get('/auth/google', googleController.google);
 router.get('/auth/google/callback', googleController.google_callback);
 router.get('/auth/google/failed', googleController.google_failed);
-router.get('/auth/google/success', googleController.google_success);
+router.get('/auth/google/success', isloggedin_1.isLoggedIn, googleController.google_success);
+router.get('/logout', googleController.google_logout);
+router.get('/loggedout', googleController.google_loggedout);
 exports.default = router;
 //# sourceMappingURL=index.js.map

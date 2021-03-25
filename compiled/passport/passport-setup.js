@@ -4,7 +4,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var passport_1 = __importDefault(require("passport"));
+var dotenv_1 = __importDefault(require("dotenv"));
 var GoogleStrategy = require('passport-google-oauth2').Strategy;
+dotenv_1.default.config();
 passport_1.default.serializeUser(function (user, done) {
     // done(null, user.id);
     done(null, user);
