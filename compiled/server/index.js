@@ -1,15 +1,16 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.server = void 0;
-var http_1 = require("http");
-var port = 5000;
-var s = http_1.createServer(function (request, response) {
-    response.end('Hello world!');
+var express_1 = __importDefault(require("express"));
+var app = express_1.default();
+app.get('/', function (request, response) {
+    response.send("env");
 });
 var server = function () {
-    s.listen(port, function () {
-        console.log('Running on 5000!');
-    });
+    app.listen(process.env.PORT, function () { return console.log("Running on port " + process.env.PORT); });
 };
 exports.server = server;
 //# sourceMappingURL=index.js.map
