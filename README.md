@@ -1,2 +1,2 @@
-# vireta-api
-API Gateway for Vireta
+# vireta-auth-api
+Auth API for Vireta
