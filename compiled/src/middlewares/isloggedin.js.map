@@ -1,0 +1,1 @@
+{"version":3,"file":"isloggedin.js","sourceRoot":"","sources":["../../../src/middlewares/isloggedin.ts"],"names":[],"mappings":";;;AAAO,IAAM,UAAU,GAAG,UAAC,GAAQ,EAAE,GAAQ,EAAE,IAAS;IACpD,IAAG,GAAG,CAAC,IAAI,EAAE;QACT,IAAI,EAAE,CAAC;KACV;SAAM;QACH,GAAG,CAAC,UAAU,CAAC,GAAG,CAAC,CAAC;KACvB;AACL,CAAC,CAAA;AANY,QAAA,UAAU,cAMtB"}

@@ -7,9 +7,12 @@ export const google =
 
 export const google_callback = 
   passport.authenticate( 'google', {
-      successRedirect: '/auth/google/success',
-      failureRedirect: '/auth/google/failure'
+      failureRedirect: '/auth/google/failure',
+      successRedirect: '/auth/google/success'
     });
+export const google_callback_success = (req: any, res: any) => {
+    res.redirect('/auth/google/success');
+};
 
 export const google_failed = (req: any, res: any) => {
     res.send("You failed");

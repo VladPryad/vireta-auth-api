@@ -1,18 +1,20 @@
 import passport from 'passport';
 import dotenv from 'dotenv';
+import { getRepository } from 'typeorm';
+import Account from '../entities/Account';
 const GoogleStrategy = require( 'passport-google-oauth2' ).Strategy;
 dotenv.config();
 
 passport.serializeUser((user, done) => {
-    // done(null, user.id);
-    done(null, user);
+     done(null, user);
   });
   
 passport.deserializeUser((id: any, done) => {
-    // User.findById(id, function(err, user) {
-    //   done(err, user);
-    // });
-    done(null, id);
+  const accountRepository = getRepository(Account);
+    accountRepository.findOne(id)
+    .then(user => {
+      done(null, user);
+    })
   });
 
 passport.use(new GoogleStrategy({
@@ -21,10 +23,11 @@ passport.use(new GoogleStrategy({
     callbackURL: `http://${process.env.DOMAIN}:${process.env.PORT}/auth/google/callback`,
     passReqToCallback   : true
   },
-  (accessToken: any, refreshToken: any, profile: any, done: any) => {
+  (request: any, accessToken: any, refreshToken: any, profile: any, done: any) => {
     // User.findOrCreate({ googleId: profile.id }, function (err: any, user: any) {
     //   return done(err, user);
     // });
+    console.log(`Profile: ${profile}`)
     return done(null, profile);
   }
 ));

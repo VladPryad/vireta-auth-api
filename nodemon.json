@@ -2,6 +2,6 @@
     "watch": ["./compiled/"],
     "ext": "*",
     "ignore": ["*.ts"],
-    "exec": "node ./compiled/app.js",
+    "exec": "node ./compiled/src/app.js",
     "delay": 5
   }
