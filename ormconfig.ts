@@ -21,7 +21,7 @@ const ormconfig: ConnectionOptions = {
    "migrationsDir": "./src/migrations"
    },
   synchronize: true,
-  logging: true
+  logging: false
 };
  
 export default ormconfig;

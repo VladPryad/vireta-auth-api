@@ -9,11 +9,13 @@ passport.serializeUser((user, done) => {
      done(null, user);
   });
   
-passport.deserializeUser((id: any, done) => {
-  const accountRepository = getRepository(Account);
-    accountRepository.findOne(id)
+passport.deserializeUser(async (id: any, done) => {
+  const accountRepository = getRepository(Account);  
+  accountRepository.findOne(id)
     .then(user => {
-      done(null, user);
+      user ? 
+      done(null, user):
+      done(null, false)
     })
   });
 
@@ -27,7 +29,6 @@ passport.use(new GoogleStrategy({
     // User.findOrCreate({ googleId: profile.id }, function (err: any, user: any) {
     //   return done(err, user);
     // });
-    console.log(`Profile: ${profile}`)
     return done(null, profile);
   }
 ));

@@ -23,7 +23,7 @@ var ormconfig = {
         "migrationsDir": "./src/migrations"
     },
     synchronize: true,
-    logging: true
+    logging: false
 };
 exports.default = ormconfig;
 //# sourceMappingURL=ormconfig.js.map
